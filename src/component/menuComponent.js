@@ -1,28 +1,14 @@
-import React,{Component} from "react";
+import React from "react";
 import DishDetail from "./dishDetailComponent";
-class Menu extends Component{
-    constructor(props){
-        super(props)
-
-        this.state = {
-            dishes: this.state.dishes,
-            comments: this.state.comments,
-        };
-    }
-
-
-
- render(){
-    return(
-      
-        <DishDetail dish={this.props.dishes.dishes}
-        comments ={this.props.comments.comments}/>
-        );
-    }
- 
-
-}
-
-
+const Menu = ({dishes}) => {
+    // const {dish, comments} = dishes;
+  return (
+    <>
+     {dishes.map((dish)=>{
+      return <DishDetail key = {dish.id} {...dish} />
+     })}
+    </>
+  );
+};
 
 export default Menu;
